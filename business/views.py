@@ -75,6 +75,22 @@ class OrderDataView(FeedDataView):
     
     token = OrderTable.token
 
+    def convert_queryset_to_values_list(self, queryset):
+	data = []
+	for obj in queryset:
+		row = []
+		for col in self.columns:
+			if col.field is not None:
+				val = getattr(obj, col.field)
+				if val is None:
+					row.append('')
+				else:
+					row.append(col.render(obj))
+			else:
+				row.append(col.render(obj))
+		data.append(row)
+	return data
+
     def get_queryset(self):
 	
 	bulk_id = self.request.GET['filter[batch_id]']
@@ -83,7 +99,7 @@ class OrderDataView(FeedDataView):
         status = self.request.GET['filter[pay_status]']
         start_time = self.request.GET['filter[start_day]']
         end_time = self.request.GET['filter[end_day]']
-
+	
         queryset = super(OrderDataView,self).get_queryset()
 
         if bulk_id:
@@ -98,13 +114,6 @@ class OrderDataView(FeedDataView):
         if start_time and end_time:
             queryset = queryset.filter(create_time__range = (start_time,end_time))
 
-	for x in queryset:
-	   if x.address == None:
-		x.address = ''
-	   if x.location == None:
-		x.location = ''
-	   if x.comments == None:
-		x.comments = ''	
         return queryset
 
 

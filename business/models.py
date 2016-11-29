@@ -226,8 +226,6 @@ class OrderDetails(models.Model):
                 on_delete=models.DO_NOTHING, null=True)
         user = models.ForeignKey('User',
                 on_delete=models.DO_NOTHING, null=True)
-	mob = models.CharField(max_length=20, null=True,blank = True)
-	name = models.CharField(max_length=100, null=True, blank=True)
 	receive_mode = models.IntegerField(max_length=11, default=2)
 	total_fee = models.IntegerField(max_length=11)
 	status = models.IntegerField(max_length=11,null=False)
@@ -237,9 +235,13 @@ class OrderDetails(models.Model):
 	third_party_order_id = models.CharField(max_length=200)
 	create_time = models.DateTimeField()
 	product = models.CharField(max_length=200)
-	address = models.CharField(max_length=200, null = True)
+	receive_address = models.CharField(max_length=200, null = True)
 	location = models.CharField(max_length=200)
-	comments = models.CharField(max_length=200)
+	obtain_mob = models.CharField(max_length=20, null=True,blank = True)
+	obtain_name = models.CharField(max_length=200, null = True)
+	receive_mob = models.CharField(max_length=20, null=True,blank = True)
+	receive_name = models.CharField(max_length=200, null = True)
+	comments = models.CharField(max_length=200,null=True, blank=True)
 	class Meta:
 		managed = False
 		db_table = 'view_bulk_order'

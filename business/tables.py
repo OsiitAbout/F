@@ -37,9 +37,7 @@ class AjaxSourceTable(Table):
 
 class OrderTable(Table):
     order_id = Column(field = 'order_id')
-    mob = Column(field = 'mob')
     user_id = Column(field = 'user_id')
-    name = Column(field = 'name')
     receive_mode = Column(field = 'receive_mode')
     total_fee = Column(field = 'total_fee')
     status = Column(field = 'status')
@@ -50,11 +48,16 @@ class OrderTable(Table):
     create_time = Column(field = 'create_time')
     product = Column(field = 'product')
     location = Column(field = 'location')
-    address = Column(field = 'address')
-    comments = Column(field = 'comments')
-    
+    obtain_name = Column(field = 'obtain_name')
+    obtain_mob = Column(field = 'obtain_mob')
+    receive_address = Column(field = 'receive_address')
+    receive_name = Column(field = 'receive_name')
+    receive_mob = Column(field = 'receive_mob')
+    comments = Column(field = 'comments') 
     id = Column()
     class Meta:
-	model = OrderDetails
+	model = OrderDetails	
 	ajax = True
 	ajax_source = reverse_lazy('ajax_order_api')
+
+    

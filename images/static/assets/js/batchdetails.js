@@ -117,25 +117,28 @@ $(document).ready(function () {
 							{ "mData ": "col12"},
 							{ "mData ": "col13"},
 							{ "mData ": "col14"},
-							{ "mData ": "col15"}
+							{ "mData ": "col15"},
+							{ "mData ": "col16"},
+							{ "mData ": "col17"},
+							{ "mData ": "col18"}
                         ],
                 "columnDefs": [ 
                     {"targets": -1,"orderable": false},
                     {"targets": [0,1,2,3,5,12,14],"orderable": false},
 					{"targets": [4,5],"searchable": false},
-					{'targets':[5,8,9],'mRender':function(data){
-                        return data/100;
-                    }},
-                    {'targets':4,'mRender':function(data){
+                    {'targets':2,'mRender':function(data){
                         if(data==1){
                             return '自提';
                         }else if(data==2){
                             return '送货上门';
-                        }else if(data==3){
+                        }else{
                             return '自提/送货上门';
                         }
                     }},
-                    {'targets':6,'mRender':function(data){
+					{'targets':[3,6,7],'mRender':function(data){
+                        return data/100;
+                    }},
+                    {'targets':4,'mRender':function(data){
                         if(data==0){
                             return '未付款';
                         }else if(data==-1){
@@ -150,13 +153,13 @@ $(document).ready(function () {
                             return '已完成';
                         }
                     }},
-					{'targets':7,'mRender':function(data){
+					{'targets':5,'mRender':function(data){
                         if(data==0){
                             return '未付款';
                         }else if(data==1){
                             return '已付款';
                         }
-                    }}
+					}}
                 ],
                 "oLanguage": {
                     "sLengthMenu": "每页显示 _MENU_ 条记录",
