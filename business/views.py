@@ -11,6 +11,7 @@ from business.tables import (
     AjaxSourceTable,OrderTable
 )
 
+from django.db.models import Q
 from rest_framework import status
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
@@ -107,7 +108,7 @@ class OrderDataView(FeedDataView):
         if number:
             queryset = queryset.filter(order__id__contains = number)
         if mob:
-            queryset = queryset.filter(mob__contains = mob)
+            queryset = queryset.filter(Q(obtain_mob__contains = mob)|Q(receive_mob__contains = mob))
         if status:
             queryset = queryset.filter(status = status)
 	

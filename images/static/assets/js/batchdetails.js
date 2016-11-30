@@ -123,8 +123,8 @@ $(document).ready(function () {
 							{ "mData ": "col18"}
                         ],
                 "columnDefs": [ 
-                    {"targets": -1,"orderable": false},
-                    {"targets": [0,1,2,3,5,12,14],"orderable": false},
+                    {"targets": [-1,-2,-3,-4,-5,-6],"orderable": false},
+                    {"targets": [0,1,2,3,6,7,8,10,12,14],"orderable": false},
 					{"targets": [4,5],"searchable": false},
                     {'targets':2,'mRender':function(data){
                         if(data==1){
