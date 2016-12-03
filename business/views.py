@@ -34,8 +34,8 @@ from django.views.decorators.csrf import csrf_exempt
 
 @login_required
 def login_home_pag(request):
-
-    return render(request, 'batchlist.html')
+    
+    return render(request,'batchlist.html')
 
 @login_required
 def login_order_details(request):
@@ -77,6 +77,8 @@ class OrderDataView(FeedDataView):
     token = OrderTable.token
 
     def convert_queryset_to_values_list(self, queryset):
+	import pdb
+	pdb.set_trace()
 	data = []
 	for obj in queryset:
 		row = []
