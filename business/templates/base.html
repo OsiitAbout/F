@@ -31,17 +31,17 @@
 		{% block body %}
 
 		{% if messages %}
-		<div>
+		<!--<div>
 		  <strong>Messages:</strong>
 		  <ul>
 		{% for message in messages %}
 		<li>{{message}}</li>
 		{% endfor %}
 		  </ul>
-		</div>
+		</div>-->
 		{% endif %}
 
-		<div>
+		<!--<div>
 		  <strong>Menu:</strong>
 		  <ul>
 		{% if user.is_authenticated %}
@@ -52,7 +52,7 @@
 		<li><a href="{% url 'account_signup' %}">注册</a></li>
 		{% endif %}
 		  </ul>
-		</div>
+		</div>-->
 		{% block content %}
 		{% endblock %}
 		{% endblock %}
