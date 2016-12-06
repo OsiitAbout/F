@@ -77,8 +77,6 @@ class OrderDataView(FeedDataView):
     token = OrderTable.token
 
     def convert_queryset_to_values_list(self, queryset):
-	import pdb
-	pdb.set_trace()
 	data = []
 	for obj in queryset:
 		row = []
