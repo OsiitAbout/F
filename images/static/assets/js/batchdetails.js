@@ -117,16 +117,13 @@ $(document).ready(function () {
 							{ "mData ": "col12"},
 							{ "mData ": "col13"},
 							{ "mData ": "col14"},
-							{ "mData ": "col15"},
-							{ "mData ": "col16"},
-							{ "mData ": "col17"},
-							{ "mData ": "col18"}
+							{ "mData ": "col15"}
                         ],
                 "columnDefs": [ 
                     {"targets": [-1,-2,-3,-4,-5,-6],"orderable": false},
-                    {"targets": [0,1,2,3,6,7,8,10,12,14],"orderable": false},
-					{"targets": [4,5],"searchable": false},
-                    {'targets':2,'mRender':function(data){
+                    {"targets": [0,5,6,7,8,10],"orderable": false},
+					{"targets": [5],"searchable": false},
+                    {'targets':1,'mRender':function(data){
                         if(data==1){
                             return '自提';
                         }else if(data==2){
@@ -135,10 +132,10 @@ $(document).ready(function () {
                             return '自提/送货上门';
                         }
                     }},
-					{'targets':[3,6,7],'mRender':function(data){
+					{'targets':[2],'mRender':function(data){
                         return data/100;
                     }},
-                    {'targets':4,'mRender':function(data){
+                    {'targets':3,'mRender':function(data){
                         if(data==0){
                             return '未付款';
                         }else if(data==-1){
@@ -153,7 +150,7 @@ $(document).ready(function () {
                             return '已完成';
                         }
                     }},
-					{'targets':5,'mRender':function(data){
+					{'targets':4,'mRender':function(data){
                         if(data==0){
                             return '未付款';
                         }else if(data==1){

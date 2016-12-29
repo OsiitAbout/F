@@ -37,13 +37,13 @@ class AjaxSourceTable(Table):
 
 class OrderTable(Table):
     order_id = Column(field = 'order_id')
-    user_id = Column(field = 'user_id')
+#    user_id = Column(field = 'user_id')
     receive_mode = Column(field = 'receive_mode')
     total_fee = Column(field = 'total_fee')
     status = Column(field = 'status')
     pay_status = Column(field = 'pay_status')
-    third_party_fee = Column(field = 'third_party_fee')
-    balance_fee = Column(field = 'balance_fee')
+#    third_party_fee = Column(field = 'third_party_fee')
+#    balance_fee = Column(field = 'balance_fee')
     third_party_order_id = Column(field = 'third_party_order_id')
     create_time = Column(field = 'create_time')
     product = Column(field = 'product')
